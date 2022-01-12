@@ -5,6 +5,7 @@ import NavBar from './navbar';
 export default function App() {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const [imageWidth, setImageWidth] = useState(600);
+  const [adminLogin, setAdminLogin] = useState(false);
 
   useEffect(() => {
     window.addEventListener('resize', handleScreenSize)
@@ -25,7 +26,7 @@ export default function App() {
     return (
       <div className='app'>
         <img className='app__header-logo' src={PngLogo} width={imageWidth} />
-        <NavBar />
+        <NavBar adminLogin={adminLogin} />
       </div>
     );
 }
