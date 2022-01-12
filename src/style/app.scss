@@ -3,7 +3,8 @@
     grid-template-columns: 20px [s] 1fr [e] 20px;
     grid-template-rows: [nav-s] 40px [nav-e content-s] 1fr [content-e footer-s] 30px [footer-e];
     &__header-logo {
-        grid-row: nav-s/nav-e;
-        justify-self: start;
+        grid-row: content-s/content-e;
+        grid-column: 1/-1;
+        justify-self: center;
     }
 }

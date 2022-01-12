@@ -1,0 +1,11 @@
+@mixin nav-link {
+    font-family: $sans-font;
+    transition: 0.3s all ease;
+    &:hover {
+        color: gray;
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}

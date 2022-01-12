@@ -1,6 +1,6 @@
 .navbar {
     grid-row: nav-s/nav-e;
-    grid-column: s/e;
+    grid-column: 1/-1;
 
     background: black;
     color: white;
@@ -9,28 +9,20 @@
     grid-template-columns: [contact-s] 1fr [contact-e appointment-s] 1fr [appointment-e merch-s] 1fr [merch-e];
     grid-template-rows: [s] 40px [e];
     justify-items: center;
-    align-items: end;
-    div:first-child {
-        justify-self: end;
-    }
-    div:nth-child(3) {
-        justify-self: start;
-    }
+    align-items: center;
     &__link {
         font-family: $sans-font;
         font-size: 18px;
+        @include nav-link();
     }
     @media only screen and (max-width: 600px) {
-        justify-self: center;
+        height: 130px;
+        padding: 0px 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-self: start;
         grid-template-columns: [s] 1fr [e];
-        grid-template-rows: 1fr 1fr 1fr;
-        justify-items: center;
-        align-items: center;
-        div:first-child {
-            justify-self: center;
-        }
-        div:nth-child(3) {
-            justify-self: center;
-        }
+        grid-template-rows: 40px 40px 40px;
+
+        border-radius: 0px 0px 50px 0px;
     }
 }
