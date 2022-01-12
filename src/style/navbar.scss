@@ -1,0 +1,36 @@
+.navbar {
+    grid-row: nav-s/nav-e;
+    grid-column: s/e;
+
+    background: black;
+    color: white;
+
+    display: grid;
+    grid-template-columns: [contact-s] 1fr [contact-e appointment-s] 1fr [appointment-e merch-s] 1fr [merch-e];
+    grid-template-rows: [s] 40px [e];
+    justify-items: center;
+    align-items: end;
+    div:first-child {
+        justify-self: end;
+    }
+    div:nth-child(3) {
+        justify-self: start;
+    }
+    &__link {
+        font-family: $sans-font;
+        font-size: 18px;
+    }
+    @media only screen and (max-width: 600px) {
+        justify-self: center;
+        grid-template-columns: [s] 1fr [e];
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        div:first-child {
+            justify-self: center;
+        }
+        div:nth-child(3) {
+            justify-self: center;
+        }
+    }
+}
