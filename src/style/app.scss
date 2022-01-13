@@ -1,10 +1,5 @@
 .app {
     display: grid;
     grid-template-columns: 20px [app-s] 1fr [app-e] 20px;
-    grid-template-rows: [nav-s] 40px [nav-e logo-s] 1fr [logo-e content-s] 1fr [content-e footer-s] 30px [footer-e];
-    &__header-logo {
-        grid-row: logo-s/logo-e;
-        grid-column: 1/-1;
-        justify-self: center;
-    }
+    grid-template-rows: [nav-s] 40px [nav-e content-s] 1fr [content-e footer-s] 30px [footer-e];
 }

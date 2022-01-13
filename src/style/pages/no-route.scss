@@ -2,24 +2,29 @@
     grid-row: content-s/content-e;
     grid-column: app-s/app-e;
 
-    place-self: start center;
     display: grid;
     gap: 20px 0px;
+    &__logo {
+        display: flex;
+        justify-content: center;
+    }
     &__message {
         font-size: 1.5em;
         font-family: $serif-font;
+        text-align: center;
     }
     &__link {
         text-align: center;
         justify-self: center;
 
         background-color: black;
-        padding: 5px;
+        padding: 15px;
         color: white;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 18px;
         border-radius: 10px;
         transition: 0.3s all ease;
+        font-family: $sans-font;
         &:focus {
             transform: scale(0.9);
         }
