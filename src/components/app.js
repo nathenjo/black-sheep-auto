@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  Routes,
   Route
 } from "react-router-dom";
 
@@ -12,7 +12,6 @@ import Contact from './pages/contact';
 import Appointments from './pages/appointments';
 import Merch from './pages/merch';
 import NoRoute from './pages/noRoute';
-import HeaderLogo from './headerLogo';
 
 export default function App() {
 
@@ -21,15 +20,15 @@ export default function App() {
     return (
       <div className='app'>
         <NavBar adminLogin={adminLogin} />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/appointments" component={Appointments} />
-            <Route path="/merch" component={Merch} />
-            <Route component={NoRoute} />
-          </Switch>
-        </Router>
+        <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/merch" element={<Merch />} />
+          <Route path="*" element={<NoRoute />} />
+        </Routes>
+      </BrowserRouter>
       </div>
     );
 }
