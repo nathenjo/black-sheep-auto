@@ -1,0 +1,29 @@
+.event-wrapper {
+    .events {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 400px);
+        gap: 20px;
+        &__event {
+            display: grid;
+            grid-template-columns: [s] 400px [e];
+            grid-template-rows: [image-s] 1fr [image-e];
+            & > * {
+                grid-column: s/e;
+            }
+            &__img {
+                grid-row: image-s/image-e;
+            }
+            &__text {
+                display: flex;
+                flex-direction: column;
+                &__title {
+                
+                }
+                &__description {
+                
+                }
+            }
+
+        }
+}
+}
