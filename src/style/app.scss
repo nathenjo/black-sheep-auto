@@ -1,5 +1,11 @@
 .app {
     display: grid;
     grid-template-columns: 20px [app-s] 1fr [app-e] 20px;
-    grid-template-rows: [nav-s] 40px [nav-e content-s] 1fr [content-e footer-s] 30px [footer-e];
+    grid-template-rows: [nav-s] 40px [nav-e content-s] 1fr [content-e] 40px [footer-s] 100px [footer-e];
+    &__admin-header {
+        @include base-layout();
+        place-self: start center;
+        font-size: 14px;
+        font-family: $serif-font;
+    }
 }

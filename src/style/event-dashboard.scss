@@ -5,7 +5,8 @@
     justify-items: center;
     align-items: center;
 
-    background-color: gray;
+    background: linear-gradient(45deg, gray 50%, red 50% 80%);
+    border: 1px solid black;
     & > * {
         display: grid;
 
@@ -20,5 +21,12 @@
         font-family: $sans-font;
         color: white;
         border: none;
+        transition: 0.3s all ease;
+        &:hover {
+            cursor: pointer;
+        }
+        &:active {
+            transform: scale(0.9);
+        }
     }
 }

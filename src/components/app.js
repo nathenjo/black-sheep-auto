@@ -12,6 +12,7 @@ import Contact from './pages/contact';
 import Appointments from './pages/appointments';
 import Merch from './pages/merch';
 import NoRoute from './pages/noRoute';
+import Footer from './footer';
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
       <div className='app'>
         <BrowserRouter>
         <NavBar adminLogin={adminLogin} />
+        {adminLogin ? <div className='app__admin-header'>Logged in as Admin</div> : null}
         <Routes>
           <Route path='/' element={<Home adminLogin={adminLogin} />} />
           <Route path="/contact" element={<Contact />} />
@@ -28,6 +30,7 @@ export default function App() {
           <Route path="/merch" element={<Merch />} />
           <Route path="*" element={<NoRoute />} />
         </Routes>
+        <Footer className='app__footer' />
       </BrowserRouter>
       </div>
     );

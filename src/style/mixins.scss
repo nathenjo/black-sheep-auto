@@ -11,3 +11,8 @@
         transform: scale(0.9);
     }
 }
+
+@mixin base-layout {
+    grid-row: content-s/content-e;
+    grid-column: app-s/app-e;
+}
