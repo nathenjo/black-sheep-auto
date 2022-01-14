@@ -26,7 +26,7 @@ export default function Events(props){
 
    return(
     <div className='events'>
-        {adminLogin ? <EventDashboard /> : null}
+        {adminLogin ? <EventDashboard className='events__event-dashboard' /> : null}
         {events.map((item, index) => {
            return (
                <div key={index} className='events__event'>

@@ -15,7 +15,7 @@ import NoRoute from './pages/noRoute';
 
 export default function App() {
 
-  const [adminLogin, setAdminLogin] = useState(false);
+  const [adminLogin, setAdminLogin] = useState(true); //TODO change to false before deployment
 
     return (
       <div className='app'>
