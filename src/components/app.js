@@ -19,10 +19,10 @@ export default function App() {
 
     return (
       <div className='app'>
-        <NavBar adminLogin={adminLogin} />
         <BrowserRouter>
+        <NavBar adminLogin={adminLogin} />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home adminLogin={adminLogin} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/merch" element={<Merch />} />

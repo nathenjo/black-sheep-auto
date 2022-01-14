@@ -1,6 +1,8 @@
 @mixin nav-link {
     font-family: $sans-font;
     transition: 0.3s all ease;
+    text-decoration: none;
+    color: white;
     &:hover {
         color: gray;
         cursor: pointer;

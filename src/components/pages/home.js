@@ -5,12 +5,12 @@ import Events from '../events';
 
 export default function Home(props){
 
+    const {adminLogin} = props;
+
    return(
     <div className='home'>
         <HeaderLogo className='home__logo' />
-        <div className='event-wrapper'>
-            <Events />
-        </div>
+        <Events adminLogin={adminLogin} />
     </div>
    );
 }

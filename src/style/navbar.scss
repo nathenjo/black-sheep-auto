@@ -5,10 +5,8 @@
     background: black;
     color: white;
 
-    display: grid;
-    grid-template-columns: [contact-s] 1fr [contact-e appointment-s] 1fr [appointment-e merch-s] 1fr [merch-e];
-    grid-template-rows: [s] 40px [e];
-    justify-items: center;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     &__link {
         font-family: $sans-font;
@@ -16,12 +14,12 @@
         @include nav-link();
     }
     @media only screen and (max-width: 600px) {
-        height: 130px;
+        flex-direction: column;
+        height: 170px;
         padding: 0px 10px;
-        background-color: rgba(0, 0, 0, 0.8);
+        // background-color: rgba(0, 0, 0, 0.8);
         justify-self: start;
-        grid-template-columns: [s] 1fr [e];
-        grid-template-rows: 40px 40px 40px;
+        position: absolute;
 
         border-radius: 0px 0px 50px 0px;
     }
