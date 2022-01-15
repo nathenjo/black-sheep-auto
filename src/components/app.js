@@ -13,10 +13,13 @@ import Appointments from './pages/appointments';
 import Merch from './pages/merch';
 import NoRoute from './pages/noRoute';
 import Footer from './footer';
+import Icons from './icons';
 
 export default function App() {
 
   const [adminLogin, setAdminLogin] = useState(true); //TODO change to false before deployment
+
+  Icons()
 
     return (
       <div className='app'>
