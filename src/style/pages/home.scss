@@ -3,8 +3,7 @@
     display: grid;
     gap: 20px 0px;
     &__logo {
-        display: flex;
-        justify-content: center;
+        place-self: center;
     }
     &__address {
         justify-self: center;

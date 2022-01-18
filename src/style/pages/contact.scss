@@ -4,6 +4,9 @@
     display: grid;
     justify-items: center;
     gap: 10px 0px;
+    &__header-logo {
+        place-self: center;
+    }
     &__email, &__phone {
         text-decoration: none;
         font-size: 2em;

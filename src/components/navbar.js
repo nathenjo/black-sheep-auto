@@ -13,8 +13,8 @@ export default function NavBar(props){
     <nav className='navbar'>
         {location.pathname != "/" ? <Link className='navbar__link' to="/">Home</Link> : null}
         <Link className='navbar__link' to="/contact">Contact</Link>
-        <Link className='navbar__link' to='/merch'>Merch</Link>
         <Link className='navbar__link' to='/appointments'>Appointments</Link>
+        <Link className='navbar__link' to='/merch'>Merch</Link>
      </nav>
    );
 }
