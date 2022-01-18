@@ -13,10 +13,11 @@ import Appointments from './pages/appointments';
 import Merch from './pages/merch';
 import NoRoute from './pages/noRoute';
 import Footer from './footer';
+import Admin from './pages/admin';
 
 export default function App() {
 
-  const [adminLogin, setAdminLogin] = useState(true); //TODO change to false before deployment
+  const [adminLogin, setAdminLogin] = useState(false);
 
     return (
       <div className='app'>
@@ -26,6 +27,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home adminLogin={adminLogin} />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<Admin setAdminLogin={setAdminLogin} />} />
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/merch" element={<Merch />} />
           <Route path="*" element={<NoRoute />} />

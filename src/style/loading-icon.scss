@@ -1,7 +1,12 @@
 .loading {
     position: absolute;
+    top: 70%;
     z-index: 2;
-    place-self: center;
+    place-self: start center;
+
+    display: grid;
+    justify-items: center;
+    font-size: 16px;
     animation-name: spin;
     animation-duration: 1000ms;
     animation-iteration-count: infinite;

@@ -1,0 +1,23 @@
+.admin {
+    @include base-layout();
+    place-self: center;
+    &__form {
+        display: grid;
+        gap: 10px 0;
+        &__label {
+            font-family: $serif-font;
+        }
+        &__input {
+            font-family: $serif-font;
+        }
+        &__button {
+            width: 50%;
+            justify-self: center;
+            font-family: $sans-font;
+            padding: 5px;
+        }
+    }
+    &__login-error {
+
+    }
+}
