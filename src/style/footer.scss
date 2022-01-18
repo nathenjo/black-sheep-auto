@@ -1,5 +1,4 @@
 .footer {
-    padding: 10px 0px;
     background-color: black;
     grid-column: 1/-1;
     grid-row: footer-s/footer-e;
@@ -25,15 +24,19 @@
             font-size: 1.5rem;
             grid-column: s/e;
             display: grid;
-            grid-template-columns: [icon-s] 30px [icon-e ];
+            grid-template-columns: [icon-s] 30px [icon-e text-s] 0.25fr [text-e];
             gap: 10px;
             justify-self: start;
+            align-items: end;
+            .fab {
+                font-size: 2rem;
+            }
             &:hover {
                 color: gray;
                 cursor: pointer;
             }
         }
-        &__faacebook {
+        &__facebook {
             grid-row: fb-s/fb-e;
         }
         &__twitter {
