@@ -1,0 +1,33 @@
+.add-event-modal {
+    display: grid;
+    &__form {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        gap: 15px 0px;
+        &__label {
+            @include label-style();
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        &__textarea {
+
+        }
+        &__file {
+            display: flex;
+            justify-content: center;
+        }
+        &__input {
+            @include input-style();
+        }
+    }
+    &__success {
+        @include success-style();
+    }
+    &__error {
+        @include error-style();
+    }
+    &__button {
+        place-self: center;
+    }
+}

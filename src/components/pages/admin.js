@@ -73,8 +73,8 @@ export default function Admin(props){
            />
            <button className='admin__form__button' type='submit'>Login</button>
        </form>
-       {usernameError ? <div className='admin__login-error'>Username is incorrect, try again</div> : null}
-       {passwordError ? <div className='admin__login-error'>Password is incorrect, try again</div> : null}
+       {usernameError ? <div className='admin__username-error'>Username is incorrect, try again</div> : null}
+       {passwordError ? <div className='admin__password-error'>Password is incorrect, try again</div> : null}
      </div>
    );
 }

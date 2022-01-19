@@ -16,3 +16,36 @@
     grid-row: content-s/content-e;
     grid-column: app-s/app-e;
 }
+
+@mixin error-style {
+    font-size: 18px;
+    color: red;
+    font-family: $sans-font;
+}
+
+@mixin success-style {
+    font-size: 18px;
+    color: darkgreen;
+    font-family: $sans-font;
+}
+
+@mixin input-style {
+    border: none;
+    border-bottom: 1px solid transparent;
+    outline: none;
+    background-color: wheat;
+    padding: 5px;
+    border-radius: 5px 5px 5px 0px;
+    &::placeholder {
+        opacity: 0.8;
+    }
+    &:focus {
+        box-shadow: inset 1px 1px 5px -2px black;
+        border-bottom: 1px solid black;
+    }
+}
+
+@mixin label-style {
+    font-size: 18px;
+    font-family: $serif-font;
+}

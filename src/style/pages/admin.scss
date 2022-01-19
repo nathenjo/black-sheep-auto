@@ -1,23 +1,41 @@
 .admin {
     @include base-layout();
     place-self: center;
+    display: grid;
+    grid-template-columns: [admin-s] calc(100vw * 0.5) [admin-e];
+    grid-template-rows: [form-s] 1fr [form-e] 40px [user-error-s] 0.5fr [user-error-e password-error-s] 0.5fr [password-error-s];
+    justify-items: center;
     &__form {
+        grid-column: admin-s/admin-e;
+        grid-row: form-s/form-e;
         display: grid;
         gap: 10px 0;
         &__label {
             font-family: $serif-font;
+            @include label-style();
+            text-align: center;
         }
         &__input {
             font-family: $serif-font;
+            @include input-style();
         }
         &__button {
             width: 50%;
             justify-self: center;
             font-family: $sans-font;
             padding: 5px;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
-    &__login-error {
+    &__username-error {
+        grid-row: user-error-s/user-error-e;
+        @include error-style();
+    }
+    &__password-error {
+        grid-row: password-error-s/password-error-e;
+        @include error-style();
 
     }
 }
