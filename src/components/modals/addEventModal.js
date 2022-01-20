@@ -10,7 +10,7 @@ export default function AddEventModal(props){
 
     const customStyle = {
         content: {
-            display: 'grid'
+            display: 'grid',
         }
     }
 
@@ -19,6 +19,7 @@ export default function AddEventModal(props){
     const [imageUrlValue, setImageUrlValue] = useState('');
     const [dateValue, setDateValue] = useState('');
     const [timeValue, setTimeValue] = useState('');
+    const [locationValue, setLocationValue] = useState('');
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState(false);
 
@@ -47,6 +48,7 @@ export default function AddEventModal(props){
    return(
     <div className='add-event-modal'>
        <Modal
+            preventScroll={true}
             style={customStyle} 
             isOpen={addEventModal}
             onRequestClose={handleCloseModal}
@@ -84,13 +86,21 @@ export default function AddEventModal(props){
                 value={dateValue}
                 onChange={(e) => setDateValue(e.target.value)}
             />
-                        <label className='add-event-modal__form__label'>Time</label>
+            <label className='add-event-modal__form__label'>Time</label>
             <input
                 className='add-event-modal__form__input'
                 type='time'
                 placeholder='Time'
                 value={timeValue}
                 onChange={(e) => setTimeValue(e.target.value)}
+            />
+            <label className='add-event-modal__form__label'>Location</label>
+            <input
+                className='add-event-modal__form__input'
+                type='address'
+                placeholder='Location'
+                value={locationValue}
+                onChange={(e) => setLocationValue(e.target.value)}
             />
             <button type='submit'>Create</button>
         </form>

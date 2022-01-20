@@ -30,6 +30,7 @@ export default function Events(props){
     <div className='events'>
         {adminLogin ? <EventDashboard className='events__event-dashboard' /> : null}
         {events.map((item, index) => {
+            let itemDate = new Date(item.date).toLocaleString("en-US", {timeZone: "America/New_York"});
            return (
                <div key={index} className='events__event'>
                    <img
@@ -40,7 +41,7 @@ export default function Events(props){
                 <div className='events__event__text'>
                     <div className='events__event__text__title'>{item.title}</div>
                     <div className='events__event__text__description'>{item.description}</div>
-                    <div className='events__event__text__description'>{Date(item.date)}</div>
+                    <div className='events__event__text__description'>{itemDate}</div>
                 </div>
                </div>
            )
