@@ -28,13 +28,17 @@ export default function AddEventModal(props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5050/events', {
+        axios.post("http://localhost:5050/events", {
             title: titleValue,
             description: descriptionValue,
             imageUrl: imageUrlValue,
             date: new Date(dateValue.concat('T', timeValue)).toJSON()
         }).then(response => {
-            setSubmitSuccess(true)
+            if (response.data.message == 'Event has been submitted') {
+                setSubmitSuccess(true)
+            } else {
+                setSubmitError(true)
+            }
         }).catch(error => {
             setSubmitError(true)
         })

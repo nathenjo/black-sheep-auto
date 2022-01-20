@@ -40,6 +40,7 @@ export default function Events(props){
                 <div className='events__event__text'>
                     <div className='events__event__text__title'>{item.title}</div>
                     <div className='events__event__text__description'>{item.description}</div>
+                    <div className='events__event__text__description'>{Date(item.date)}</div>
                 </div>
                </div>
            )
