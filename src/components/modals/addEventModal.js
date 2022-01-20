@@ -18,6 +18,7 @@ export default function AddEventModal(props){
     const [descriptionValue, setDescriptionValue] = useState('');
     const [imageUrlValue, setImageUrlValue] = useState('');
     const [dateValue, setDateValue] = useState('');
+    const [timeValue, setTimeValue] = useState('');
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState(false);
 
@@ -31,7 +32,7 @@ export default function AddEventModal(props){
             title: titleValue,
             description: descriptionValue,
             imageUrl: imageUrlValue,
-            date: dateValue
+            date: new Date(dateValue).toJSON()
         }).then(response => {
             setSubmitSuccess(true)
         }).catch(error => {
@@ -78,6 +79,14 @@ export default function AddEventModal(props){
                 placeholder='Title'
                 value={dateValue}
                 onChange={(e) => setDateValue(e.target.value)}
+            />
+                        <label className='add-event-modal__form__label'>Time</label>
+            <input
+                className='add-event-modal__form__input'
+                type='time'
+                placeholder='Time'
+                value={timeValue}
+                onChange={(e) => setTimeValue(e.target.value)}
             />
             <button type='submit'>Create</button>
         </form>

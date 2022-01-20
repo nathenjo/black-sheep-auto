@@ -17,7 +17,7 @@ import Admin from './pages/admin';
 
 export default function App() {
 
-  const [adminLogin, setAdminLogin] = useState(true); //TODO set to false
+  const [adminLogin, setAdminLogin] = useState(false); //TODO set to false
 
     return (
       <div className='app'>
