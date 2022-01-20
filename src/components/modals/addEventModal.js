@@ -32,7 +32,7 @@ export default function AddEventModal(props){
             title: titleValue,
             description: descriptionValue,
             imageUrl: imageUrlValue,
-            date: new Date(dateValue).toJSON()
+            date: new Date(dateValue.concat('T', timeValue)).toJSON()
         }).then(response => {
             setSubmitSuccess(true)
         }).catch(error => {
@@ -67,7 +67,7 @@ export default function AddEventModal(props){
             <label className='add-event-modal__form__label'>Image for Background</label>
             <input
                 className='add-event-modal__form__file'
-                type='file'
+                type='url'
                 placeholder='Image URL'
                 value={imageUrlValue}
                 onChange={(e) => setImageUrlValue(e.target.value)}

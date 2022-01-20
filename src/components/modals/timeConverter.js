@@ -4,7 +4,7 @@ function testDate(time) {
 }
 
 function combineDates(date, time) {
-    let combinedDate = date.concat('T', time, ':00')
+    let combinedDate = date.concat('T', time)
     return combinedDate
 }
 
