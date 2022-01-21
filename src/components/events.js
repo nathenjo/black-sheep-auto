@@ -12,8 +12,8 @@ export default function Events(props){
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     const [eventChanged, setEventChanged] = useState(false);
-    const [deleteModal, setDeleteModal] = useState(false);
-    const [editModal, setEditModal] = useState(false);
+    const [deleteModal ,setDeleteModal] = useState(false);
+    const [selectedModal, setSelectedModal] = useState('');
     
     useEffect(() => {
         setLoading(true)
@@ -25,7 +25,7 @@ export default function Events(props){
             setEvents(response.data);
             setLoading(false);
         }).catch(error => {
-            setEvents(events.concat([{title: "Check out social media for events!"}]));
+            setEvents(events.concat([{title: "Check out our social media for events!"}]));
             setLoading(false);
         })
     }, [eventChanged])
@@ -34,7 +34,6 @@ export default function Events(props){
     <div className='events'>
         {adminLogin ? <EventDashboard setEventChanged={setEventChanged} className='events__event-dashboard' /> : null}
         {events.map((item, index) => {
-            let dateOptions = {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}
             let itemDate = new Date(item.date).toLocaleString("en-US", {timeZone: "America/New_York", dateStyle: 'short', timeStyle: 'short'})
            return (
                <div key={index} className='events__event'>
@@ -46,14 +45,13 @@ export default function Events(props){
                     <div className='events__event__text'>
                         <div className='events__event__text__title'>
                             {item.title}
-                            {adminLogin ? <i onClick={() => setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i> : null}
+                            {adminLogin ? <i onClick={() => setSelectedModal(item._id)&setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i> : null}
                             {adminLogin ? <i className=" events__event__text__edit far fa-edit"></i> : null}
                         </div>
-
                         <div className='events__event__text__description'>{item.description}</div>
                         <div className='events__event__text__description'>{itemDate}</div>
+                        <DeleteEventModal events={events} selectedModal={selectedModal} setDeleteModal={setDeleteModal} deleteModal={deleteModal} item={item} />
                     </div>
-                    {deleteModal ? <DeleteEventModal item={item} deleteModal={deleteModal} setDeleteModal={setDeleteModal} /> : null}
                </div>
            )
        })}

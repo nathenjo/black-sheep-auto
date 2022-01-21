@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 
@@ -6,17 +6,20 @@ Modal.setAppElement('.app-wrapper');
 
 export default function DeleteEventModal(props){
 
-    const {deleteModal, setDeleteModal, item} = props;
+    const {deleteModal, setDeleteModal, item, events, selectedModal} = props;
 
     const customStyle = {
         content: {
-            display: 'grid',
-            width: "50%"
+            display: 'grid'
         }
     }
 
+    useEffect(() => {
+        events.filter(item => item._id == selectedModal)
+    }, [])
+
     const handleCloseModal = () => {
-        setDeleteModal(false);
+        setDeleteModal('');
     }
 
    return(
