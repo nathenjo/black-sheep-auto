@@ -6,15 +6,15 @@ Modal.setAppElement('.app-wrapper');
 
 export default function EventDashboard(props){
 
-    const {className} = props;
+    const {className, setEventChanged} = props;
 
     const [addEventModal, setAddEventModal] = useState(false);
     const [deleteEventModal, setDeleteEventModal] = useState(false);
     const [updateEventModal, setUpdateEventModal] = useState(false);
 
-    const handleCloseModal = () => {
-        setAddEventModal(false)
-    }
+    useEffect(() => {
+        
+    }, [addEventModal])
 
     return(
         <div className={`event-dashboard ${className}`}>
@@ -23,9 +23,7 @@ export default function EventDashboard(props){
                 className='event-dashboard__add-event'
             >Add Event<i className="fas fa-plus-square"></i>
             </button>
-            {addEventModal ? <AddEventModal addEventModal={addEventModal} setAddEventModal={setAddEventModal} /> : null}
-            <button className='event-dashboard__delete-event'>Delete Event<i className="fas fa-trash-alt"></i></button>
-            <button className='event-dashboard__update-event'>Update Event<i className="fas fa-edit"></i></button>
+            {addEventModal ? <AddEventModal setEventChanged={setEventChanged} addEventModal={addEventModal} setAddEventModal={setAddEventModal} /> : null}
         </div>
     );
 }

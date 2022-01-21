@@ -6,11 +6,11 @@ Modal.setAppElement('.app-wrapper');
 
 export default function AddEventModal(props){
 
-    const {addEventModal, setAddEventModal} = props;
+    const {addEventModal, setAddEventModal, setEventChanged} = props;
 
     const customStyle = {
         content: {
-            display: 'grid',
+            display: 'grid'
         }
     }
 
@@ -33,7 +33,8 @@ export default function AddEventModal(props){
             title: titleValue,
             description: descriptionValue,
             imageUrl: imageUrlValue,
-            date: new Date(dateValue.concat('T', timeValue)).toJSON()
+            date: new Date(dateValue.concat('T', timeValue)).toJSON(),
+            location: locationValue
         }).then(response => {
             if (response.data.message == 'Event has been submitted') {
                 setSubmitSuccess(true)
@@ -43,6 +44,7 @@ export default function AddEventModal(props){
         }).catch(error => {
             setSubmitError(true)
         })
+        setEventChanged(true)
     }
 
    return(

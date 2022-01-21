@@ -1,9 +1,10 @@
 .event-dashboard {
-    display: grid;
-    grid-template-columns: [s] 1fr [e];
-    grid-template-rows: [add-s] 1fr [add-e delete-s] 1fr [delete-e update-s] 1fr [delete-e];
-    justify-items: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    gap: 20px;
 
     background: linear-gradient(45deg, gray 50%, red 50% 80%);
     border: 1px solid black;

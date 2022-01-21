@@ -31,10 +31,31 @@
             border-radius: 0px 0px 10px 10px;
             transition: 0.3s all ease;
             &__title {
+                display: flex;
+                align-items: center;
+                gap: 0px 20px;
                 font-size: 1.5em;
                 font-weight: 600;
                 letter-spacing: 1px;
                 font-family: $sans-font;
+            }
+            &__delete, &__edit {
+                color: red;
+                transition: 0.2s all ease;
+                font-size: 1.2em;
+                background-color: wheat;
+                border-radius: 25%;
+                padding: 8px;
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.2);
+                }
+                &:active {
+                    transform: scale(1);
+                }
+            }
+            &__edit {
+                color: darkorange;
             }
             &__description {
                 font-size: 1.2em;
