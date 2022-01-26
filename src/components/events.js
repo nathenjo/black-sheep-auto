@@ -25,10 +25,14 @@ export default function Events(props){
             setEvents(response.data);
             setLoading(false);
         }).catch(error => {
-            setEvents(events.concat([{title: "Check out our social media for events!"}]));
+            setEvents(events.concat([serverErrorItem]));
             setLoading(false);
         })
     }, [eventChanged])
+
+    const serverErrorItem = {
+        title: 'Check out our social media for events!'
+    }
 
    return(
     <div className='events'>
@@ -45,8 +49,8 @@ export default function Events(props){
                     <div className='events__event__text'>
                         <div className='events__event__text__title'>
                             {item.title}
-                            {adminLogin ? <i onClick={() => setSelectedModal(item._id)&setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i> : null}
-                            {adminLogin ? <i className=" events__event__text__edit far fa-edit"></i> : null}
+                            {adminLogin && item.description ? <i onClick={() => setSelectedModal(item._id)&setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i> : null}
+                            {adminLogin && item.description ? <i className=" events__event__text__edit far fa-edit"></i> : null}
                         </div>
                         <div className='events__event__text__description'>{item.description}</div>
                         <div className='events__event__text__description'>{itemDate}</div>
