@@ -13,7 +13,7 @@ export default function Events(props){
     const [loading, setLoading] = useState(true);
     const [eventChanged, setEventChanged] = useState(false);
     const [deleteModal ,setDeleteModal] = useState(false);
-    const [selectedModal, setSelectedModal] = useState('');
+    const [selectedItem, setSelectedItem] = useState('');
     
     useEffect(() => {
         setLoading(true)
@@ -49,16 +49,16 @@ export default function Events(props){
                     <div className='events__event__text'>
                         <div className='events__event__text__title'>
                             {item.title}
-                            {adminLogin && item.description ? <i onClick={() => setSelectedModal(item._id)&setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i> : null}
+                            {adminLogin && item.description ? <i onClick={() => setSelectedItem(item)&setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i> : null}
                             {adminLogin && item.description ? <i className=" events__event__text__edit far fa-edit"></i> : null}
                         </div>
                         <div className='events__event__text__description'>{item.description}</div>
-                        <div className='events__event__text__description'>{itemDate}</div>
-                        <DeleteEventModal events={events} selectedModal={selectedModal} setDeleteModal={setDeleteModal} deleteModal={deleteModal} item={item} />
+                        {item.date ? <div className='events__event__text__description'>{itemDate}</div> : null}
                     </div>
                </div>
            )
        })}
+        {deleteModal ? <DeleteEventModal selectedItem={selectedItem} setDeleteModal={setDeleteModal} deleteModal={deleteModal} /> :  null}
        {loading ? <LoadingIcon className='events__loading-icon' /> : null}
      </div>
    );

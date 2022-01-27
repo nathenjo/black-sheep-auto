@@ -1,0 +1,29 @@
+.delete-event {
+    display: grid;
+    grid-column: [delete-s] 1fr [delete-e];
+    grid-template-rows: [question-s] 1fr [question-e item-s] 1fr [item-e confirm-s] 40px [confirm-e cancel-s] 40px [cancel-e];
+    gap: 15px 0px;
+    & > * {
+        grid-column: delete-s/delete-e;
+    }
+    &__question {
+        grid-row: question-s/question-e;
+    }
+    &__item {
+        grid-row: item-s/item-e;
+    }
+    &__confirm, &__cancel {
+        width: 50%;
+        justify-self: center;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 5px;
+    }
+    &__confirm {
+        grid-row: confirm-s/confirm-e;
+        width: 50%;
+    }
+    &__cancel {
+        grid-row: cancel-s/cancel-e;
+    }
+}
