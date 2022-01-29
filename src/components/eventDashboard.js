@@ -9,8 +9,6 @@ export default function EventDashboard(props){
     const {className, setEventChanged} = props;
 
     const [addEventModal, setAddEventModal] = useState(false);
-    const [deleteEventModal, setDeleteEventModal] = useState(false);
-    const [updateEventModal, setUpdateEventModal] = useState(false);
 
     useEffect(() => {
         

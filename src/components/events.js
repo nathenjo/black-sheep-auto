@@ -20,6 +20,7 @@ export default function Events(props){
     }, [])
 
     useEffect(() => {
+        setEventChanged(false)
         axios.get('http://localhost:5050/events')
         .then(response => {
             setEvents(response.data);
@@ -36,7 +37,7 @@ export default function Events(props){
 
    return(
     <div className='events'>
-        {adminLogin ? <EventDashboard setEventChanged={setEventChanged} className='events__event-dashboard' /> : null}
+        {adminLogin && <EventDashboard setEventChanged={setEventChanged} className='events__event-dashboard' />}
         {events.map((item, index) => {
             let itemDate = new Date(item.date).toLocaleString("en-US", {timeZone: "America/New_York", dateStyle: 'short', timeStyle: 'short'})
            return (
@@ -53,13 +54,13 @@ export default function Events(props){
                             {adminLogin && item.description ? <i className=" events__event__text__edit far fa-edit"></i> : null}
                         </div>
                         <div className='events__event__text__description'>{item.description}</div>
-                        {item.date ? <div className='events__event__text__description'>{itemDate}</div> : null}
+                        {item.date && <div className='events__event__text__description'>{itemDate}</div>}
                     </div>
                </div>
            )
        })}
-        {deleteModal ? <DeleteEventModal selectedItem={selectedItem} setDeleteModal={setDeleteModal} deleteModal={deleteModal} /> :  null}
-       {loading ? <LoadingIcon className='events__loading-icon' /> : null}
+        {deleteModal && <DeleteEventModal setEventChanged={setEventChanged} selectedItem={selectedItem} setDeleteModal={setDeleteModal} deleteModal={deleteModal} />}
+       {loading && <LoadingIcon className='events__loading-icon' />}
      </div>
    );
 }

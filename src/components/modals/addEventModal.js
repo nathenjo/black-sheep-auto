@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
+import LoadingIcon from '../loadingIcon';
 
 Modal.setAppElement('.app-wrapper');
 
 export default function AddEventModal(props){
 
     const {addEventModal, setAddEventModal, setEventChanged} = props;
+    const [loading, setLoading] = useState(false);
 
     const customStyle = {
         content: {
@@ -27,9 +29,10 @@ export default function AddEventModal(props){
         setAddEventModal(false);
     }
 
-    const handleSubmit = (e) => {
+    async function handleSubmit(e) {
         e.preventDefault();
-        axios.post("http://localhost:5050/events", {
+        setLoading(true);
+        await axios.post("http://localhost:5050/events", {
             title: titleValue,
             description: descriptionValue,
             imageUrl: imageUrlValue,
@@ -38,13 +41,15 @@ export default function AddEventModal(props){
         }).then(response => {
             if (response.data.message == 'Event has been submitted') {
                 setSubmitSuccess(true)
+                setLoading(false)
+                setEventChanged(true)
             } else {
                 setSubmitError(true)
+                setLoading(false)
             }
         }).catch(error => {
             setSubmitError(true)
         })
-        setEventChanged(true)
     }
 
    return(
@@ -106,8 +111,9 @@ export default function AddEventModal(props){
             />
             <button type='submit'>Create</button>
         </form>
-        {submitSuccess ? <div className='add-event-modal__success'>Event successfully added!</div> : null}
-        {submitError ? <div className='add-event-modal__error'>Error adding event, try again</div> : null}
+        {loading && <LoadingIcon />}
+        {submitSuccess && <div className='add-event-modal__success'>Event successfully added!</div>}
+        {submitError && <div className='add-event-modal__error'>Error adding event, try again</div>}
         <button className='add-event-modal__button' onClick={handleCloseModal}>Close</button>
        </Modal>
     </div>

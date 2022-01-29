@@ -5,9 +5,12 @@
     gap: 15px 0px;
     & > * {
         grid-column: delete-s/delete-e;
+        font-size: 1.5em;
     }
     &__question {
         grid-row: question-s/question-e;
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
     }
     &__item {
         grid-row: item-s/item-e;
@@ -18,6 +21,14 @@
         outline: none;
         border: 1px solid transparent;
         border-radius: 5px;
+        transition: 0.3s all ease;
+        &:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        &:active {
+            transform: scale(0.95);
+        }
     }
     &__confirm {
         grid-row: confirm-s/confirm-e;
@@ -25,5 +36,11 @@
     }
     &__cancel {
         grid-row: cancel-s/cancel-e;
+    }
+    &__success {
+        @include success-style();
+    }
+    &__error {
+        @include error-style();
     }
 }
