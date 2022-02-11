@@ -22,7 +22,8 @@ export default function Events(props){
     }, [])
 
     useEffect(() => {
-        setEventChanged(false)
+        setEventChanged(false);
+        setSelectedItem('');
         axios.get('http://localhost:5050/events')
         .then(response => {
             setEvents(response.data);

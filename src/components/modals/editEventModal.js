@@ -41,7 +41,7 @@ export default function EditEventModal(props){
     useEffect(() => {
         const selectedItemNewDate = new Date(selectedItem.date)
         let selectedItemTime = `${selectedItemNewDate.getHours()}:${selectedItemNewDate.getMinutes()}`
-        let selectedItemDate = `${selectedItemNewDate.getFullYear()}-${customGetMonth(selectedItemNewDate.getMonth())}-${customGetMonth(selectedItemNewDate.getDate())}`
+        let selectedItemDate = `${selectedItemNewDate.getFullYear()}-${customGetMonth(selectedItemNewDate.getMonth() + 1)}-${customGetMonth(selectedItemNewDate.getDate())}`
         setDateValue(selectedItemDate)
         setTimeValue(selectedItemTime)
     }, [])
