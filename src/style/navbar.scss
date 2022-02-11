@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    &__link {
+    &__link, &__logout {
         font-family: $sans-font;
         font-size: 18px;
         @include nav-link();
@@ -24,16 +24,7 @@
         border-radius: 0px 0px 50px 0px;
     }
     &__logout {
-        border-radius: 5px;
-        background-color: gray;
-        padding: 5px;
-        color: white;
-        font-family: $sans-font;
-        &:hover {
-            cursor: pointer;
-        }
-        &:active {
-            transform: scale(0.9);
-        }
+        background: none;
+        border: none;
     }
 }

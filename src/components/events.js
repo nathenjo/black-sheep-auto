@@ -4,6 +4,7 @@ import axios from 'axios';
 import EventDashboard from './eventDashboard';
 import LoadingIcon from './loadingIcon';
 import DeleteEventModal from './modals/deleteEventModal';
+import EditEventModal from './modals/editEventModal';
 
 export default function Events(props){
 
@@ -13,6 +14,7 @@ export default function Events(props){
     const [loading, setLoading] = useState(true);
     const [eventChanged, setEventChanged] = useState(false);
     const [deleteModal ,setDeleteModal] = useState(false);
+    const [editModal ,setEditModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState('');
     
     useEffect(() => {
@@ -50,8 +52,12 @@ export default function Events(props){
                     <div className='events__event__text'>
                         <div className='events__event__text__title'>
                             {item.title}
-                            {adminLogin && item.description ? <i onClick={() => setSelectedItem(item)&setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i> : null}
-                            {adminLogin && item.description ? <i className=" events__event__text__edit far fa-edit"></i> : null}
+                            {adminLogin && item.description ?
+                                <i onClick={() => setSelectedItem(item)&setDeleteModal(true)} className=" events__event__text__delete fas fa-trash-alt"></i>
+                            : null}
+                            {adminLogin && item.description ?
+                                <i onClick={() => setSelectedItem(item)&setEditModal(true)} className=" events__event__text__edit far fa-edit"></i>
+                            : null}
                         </div>
                         <div className='events__event__text__description'>{item.description}</div>
                         {item.date && <div className='events__event__text__description'>{itemDate}</div>}
@@ -60,6 +66,7 @@ export default function Events(props){
            )
        })}
         {deleteModal && <DeleteEventModal setEventChanged={setEventChanged} selectedItem={selectedItem} setDeleteModal={setDeleteModal} deleteModal={deleteModal} />}
+        {editModal && <EditEventModal setEventChanged={setEventChanged} selectedItem={selectedItem} setEditModal={setEditModal} editModal={editModal} />}
        {loading && <LoadingIcon className='events__loading-icon' />}
      </div>
    );
