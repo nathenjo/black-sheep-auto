@@ -61,7 +61,8 @@ export default function Events(props){
                             : null}
                         </div>
                         <div className='events__event__text__description'>{item.description}</div>
-                        {item.date && <div className='events__event__text__description'>{itemDate}</div>}
+                        {item.date && <div className='events__event__text__date'>{itemDate}</div>}
+                        <a href={`https://maps.google.com/${item.location}`} className='events__event__text__location'>{item.location}</a>
                     </div>
                </div>
            )

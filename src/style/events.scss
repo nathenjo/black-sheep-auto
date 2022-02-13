@@ -30,6 +30,9 @@
             padding: 20px;
             border-radius: 0px 0px 10px 10px;
             transition: 0.3s all ease;
+            & > * {
+                grid-column: 1/-1;
+            }
             &__title {
                 display: flex;
                 align-items: center;
@@ -38,6 +41,7 @@
                 font-weight: 600;
                 letter-spacing: 1px;
                 font-family: $sans-font;
+                grid-row: 1;
             }
             &__delete, &__edit {
                 color: red;
@@ -59,6 +63,16 @@
             }
             &__description {
                 font-size: 1.2em;
+                grid-row: 2;
+            }
+            &__date {
+                grid-row: 3;
+            }
+            &__location {
+                grid-row: 3;
+                justify-self: center;
+                text-decoration: none;
+                color: white;
             }
         }
 
